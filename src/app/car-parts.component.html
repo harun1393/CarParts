@@ -1,0 +1,43 @@
+
+    <h2>{{ totalCarParts() }} Car available</h2>
+
+      <ul>
+    <li class="card" *ngFor="let carPart of carParts" [class.featured]="carPart.featured">
+      <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="photo">
+              <img src="{{carPart.image}}" width="120px" height="100px">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <table class="product-body">
+              <tr>
+
+                <td>
+                  <h2>{{ carPart.name | uppercase }}</h2>
+                  <p class="price" >Price: {{ carPart.price | currency: 'USD' : true }}</p>
+                  <p *ngIf="carPart.inStock >0">{{ carPart.inStock }} in Stock</p>
+                  <p *ngIf="carPart.inStock == 0">Out of  Stock</p>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-md-2">
+            <div class="select-quantity">
+                <button class="decrease" (click)="downQuantity(carPart)">-</button>
+
+                <input class="form-control " type="text" [(ngModel)]="carPart.quantity" >
+                <button class="increase" (click)="upQuantity(carPart)">+</button>
+              </div>
+          </div>
+        </div>
+
+
+      </div>
+        </div>
+    </li>
+  </ul>
+
+

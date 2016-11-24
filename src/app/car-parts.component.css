@@ -1,0 +1,11 @@
+.description{
+      color:blue;
+      font-size:small;
+    }
+    .price{
+      font-weight:bold;
+    }
+.featured {
+  background:#57595D;
+  border:1px solid green;
+}
